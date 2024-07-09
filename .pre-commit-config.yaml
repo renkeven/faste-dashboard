@@ -1,11 +1,11 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
   - repo: https://github.com/doublify/pre-commit-rust
-    rev: master
+    rev: v1.0
     hooks:
     -   id: fmt
         args: ['--verbose', '--edition', '2018', '--']
@@ -13,7 +13,7 @@ repos:
     -   id: cargo-check
         files: ^backend_axum\$
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.8
+    rev: v0.5.1
     hooks:
       - id: ruff
         files: ^backend_litestar\$
@@ -29,7 +29,7 @@ repos:
           - prettier-plugin-svelte
           - svelte
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.56.0
+    rev: v9.6.0
     hooks:
       - id: eslint
         files: ^frontend\.(js|ts|svelte)$

@@ -1,5 +1,11 @@
-<script>
+<script lang="ts">
 	import '../style.css';
+	import Navbar from './navbar.svelte';
+
+	export const ssr = false;
 </script>
 
-<slot />
+<div class="px-4">
+	<Navbar />
+	<slot />
+</div>

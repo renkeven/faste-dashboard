@@ -34,3 +34,4 @@ frontend/vite.config.ts.timestamp-*
 frontend/.vercel
 */.env*.local
 */.vscode
+.vscode

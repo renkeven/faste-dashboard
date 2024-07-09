@@ -1,29 +1,58 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import Chart from 'chart.js/auto';
+	export const ssr = false;
 
-	let data = [20, 100, 50, 12, 20, 130, 45];
-    let labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    let ctx;
-    let canvas: any;
+	import { type InputData } from '$lib/interfaces';
+	import ChartComponent from './chart_component.svelte';
 
-    onMount(() => {
-        ctx = canvas.getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [
-                    {
-                        label: 'Unit Sales',
-                        data: data
-                    }
-                ]
-            }
-        });
-    });
+	const data: InputData = {
+        name: "Example",
+        data: [
+		{ x: '2023', y: 10, yMin: 8, yMax: 12 },
+		{ x: '2024', y: 15, yMin: 13, yMax: 17 },
+		{ x: '2025', y: 8, yMin: 6, yMax: 10 },
+		{ x: '2026', y: 12, yMin: 10, yMax: 14 },
+		{ x: '2027', y: 20, yMin: 18, yMax: 22 },
+		{ x: '2028', y: 17, yMin: 15, yMax: 19 },
+		{ x: '2029', y: 13, yMin: 11, yMax: 15 },
+		{ x: '2030', y: 18, yMin: 16, yMax: 20 },
+		{ x: '2031', y: 11, yMin: 9, yMax: 13 },
+		{ x: '2032', y: 16, yMin: 14, yMax: 18 }
+	]};
+
+	// let petData: any = null;
+	// let error: string | null = null;
+
+	// async function fetchPetData() {
+	// 	try {
+	// 		const response = await fetch('http://0.0.0.0:8080/enter');
+
+	// 		if (!response.ok) {
+	// 			throw new Error(`HTTP error! status: ${response.status}`);
+	// 		}
+
+	// 		petData = await response.json();
+	// 	} catch (e) {
+	// 		console.error('Error fetching pet data:', e);
+	// 		error = 'Failed to fetch pet data';
+	// 	}
+	// }
+
+	// onMount(() => {
+	// 	fetchPetData();
+	// });
 </script>
 
-<div class="w-1/2 h-1/2">
-    <canvas bind:this={canvas} />
+<div class="flex flex-col w-full p-2">
+	<div class="flex w-full justify-center items-center">
+		<ChartComponent {data} />
+	</div>
 </div>
+
+<!-- {#if error}
+	<p>Error: {error}</p>
+{:else if petData}
+	<h1>Pet Data</h1>
+	<pre>{JSON.stringify(petData, null, 2)}</pre>
+{:else}
+	<p>Loading...</p>
+{/if} -->
