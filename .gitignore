@@ -12,6 +12,8 @@ backend_axum/**/*.rs.bk
 # MSVC Windows builds of rustc generate these, which store debugging information
 backend_axum/*.pdb
 
+# Manual not included
+backend_axum/*/_main.rs
 
 # Backend_litestar
 *.pyc
