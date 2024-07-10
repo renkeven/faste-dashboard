@@ -1,5 +1,4 @@
 <script lang="ts">
-    export const ssr = false;
 
     import { type InputData } from "$lib/interfaces";
     import ChartComponent from "./chart_component.svelte";
